@@ -10,6 +10,8 @@ import Home from "./pages/Home";
 import Settings from "./pages/Settings";
 import UserProfile from "./pages/UserProfile";
 import About from "./pages/About";
+import Packages from "./pages/Packages";
+import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +37,16 @@ const App = () => (
             <Route path="/home" element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            } />
+            <Route path="/packages" element={
+              <ProtectedRoute>
+                <Packages />
+              </ProtectedRoute>
+            } />
+            <Route path="/cart" element={
+              <ProtectedRoute>
+                <Cart />
               </ProtectedRoute>
             } />
             <Route path="/settings" element={

@@ -20,6 +20,14 @@ const Auth = () => {
     e.preventDefault();
     // For now, just simulate login - will implement with Supabase later
     localStorage.setItem('user_authenticated', 'true');
+    localStorage.setItem('user_type', 'registered');
+    window.location.href = '/home';
+  };
+
+  const handleGuestLogin = () => {
+    // Set guest authentication
+    localStorage.setItem('user_authenticated', 'true');
+    localStorage.setItem('user_type', 'guest');
     window.location.href = '/home';
   };
 
@@ -130,6 +138,16 @@ const Auth = () => {
             {isLogin ? "Sign In" : "Create Account"}
           </Button>
         </form>
+
+        <div className="mt-4">
+          <Button
+            onClick={handleGuestLogin}
+            variant="outline"
+            className="w-full border-purple-200 dark:border-gray-600 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-gray-700 font-semibold py-3 rounded-lg transition-all duration-300"
+          >
+            Continue as Guest
+          </Button>
+        </div>
 
         <div className="mt-6 text-center">
           <p className="text-gray-600 dark:text-gray-300">

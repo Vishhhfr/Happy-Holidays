@@ -5,7 +5,6 @@ import FeaturedTrips from "@/components/FeaturedTrips";
 import AllTrips from "@/components/AllTrips";
 import Statistics from "@/components/Statistics";
 import Testimonials from "@/components/Testimonials";
-import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
 
 const Home = () => {
@@ -17,7 +16,6 @@ const Home = () => {
       <AllTrips />
       <Statistics />
       <Testimonials />
-      <Newsletter />
       <Footer />
     </div>
   );
