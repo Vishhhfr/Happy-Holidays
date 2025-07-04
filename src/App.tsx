@@ -7,6 +7,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Auth from "./pages/Auth";
 import Home from "./pages/Home";
+import Settings from "./pages/Settings";
+import UserProfile from "./pages/UserProfile";
+import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -32,6 +35,21 @@ const App = () => (
             <Route path="/home" element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            } />
+            <Route path="/settings" element={
+              <ProtectedRoute>
+                <Settings />
+              </ProtectedRoute>
+            } />
+            <Route path="/profile" element={
+              <ProtectedRoute>
+                <UserProfile />
+              </ProtectedRoute>
+            } />
+            <Route path="/about" element={
+              <ProtectedRoute>
+                <About />
               </ProtectedRoute>
             } />
             <Route path="/" element={<Navigate to="/auth" replace />} />
