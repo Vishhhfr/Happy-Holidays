@@ -14,7 +14,7 @@ const Logo = ({ size = 'md', className = '' }: LogoProps) => {
   return (
     <div className={`${sizeClasses[size]} ${className}`}>
       <img
-        src="/lovable-uploads/3844e9bd-06e3-4e01-8d54-0fab8e1a5011.png"
+        src="/lovable-uploads/ea7fa6f3-2622-498a-b1d0-3a00fc0ce003.png"
         alt="Happy Holidays Logo"
         className="w-full h-full object-contain"
       />
