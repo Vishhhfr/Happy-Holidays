@@ -1,16 +1,23 @@
-
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Users, Utensils, MapPin, Calendar, Car, Star } from "lucide-react";
 
 const Packages = () => {
   const allTrips = [
     {
       id: 1,
       title: "Kerala Backwaters",
-      description: "Cruise through serene backwaters and lush green landscapes",
+      description: "Cruise through serene backwaters and lush green landscapes with traditional houseboats",
       duration: "4 Days",
       price: "₹15,000",
-      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "4-8 people",
+      accommodation: "Houseboat + Resort",
+      transportation: "Train + Bus",
+      activities: ["Houseboat Cruise", "Spice Garden Visit", "Cultural Shows"],
+      rating: 4.8
     },
     {
       id: 2,
@@ -136,17 +143,55 @@ const Packages = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {allTrips.map((trip) => (
               <div key={trip.id} className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
-                <div className="h-48 overflow-hidden">
+                <div className="h-48 overflow-hidden relative">
                   <img 
                     src={trip.image} 
                     alt={trip.title}
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                   />
+                  <div className="absolute top-2 right-2 bg-white/90 dark:bg-gray-800/90 px-2 py-1 rounded-full flex items-center space-x-1">
+                    <Star className="h-4 w-4 text-yellow-500 fill-current" />
+                    <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">{trip.rating}</span>
+                  </div>
                 </div>
                 
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{trip.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{trip.description}</p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 text-sm">{trip.description}</p>
+                  
+                  {/* Trip Details Grid */}
+                  <div className="grid grid-cols-2 gap-3 mb-4 text-xs">
+                    <div className="flex items-center space-x-1">
+                      <Utensils className="h-3 w-3 text-purple-600" />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        {trip.foodIncluded ? "Food Included" : "Food Extra"}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <MapPin className="h-3 w-3 text-purple-600" />
+                      <span className="text-gray-600 dark:text-gray-300">
+                        {trip.guideAvailable ? "Guide Available" : "Self Guided"}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <Users className="h-3 w-3 text-purple-600" />
+                      <span className="text-gray-600 dark:text-gray-300">{trip.groupSize}</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <Calendar className="h-3 w-3 text-purple-600" />
+                      <span className="text-gray-600 dark:text-gray-300">{trip.accommodation}</span>
+                    </div>
+                  </div>
+
+                  <div className="mb-4 text-xs">
+                    <div className="flex items-center space-x-1 mb-1">
+                      <Car className="h-3 w-3 text-purple-600" />
+                      <span className="text-gray-600 dark:text-gray-300">{trip.transportation}</span>
+                    </div>
+                    <p className="text-gray-600 dark:text-gray-300">
+                      <strong>Activities:</strong> {trip.activities.join(", ")}
+                    </p>
+                  </div>
                   
                   <div className="flex justify-between items-center mb-4">
                     <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">

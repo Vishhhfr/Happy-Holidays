@@ -34,6 +34,14 @@ const Testimonials = () => {
       text: "The Kerala backwaters trip was magical. Thank you Happy Holidays for such a wonderful experience!",
       rating: 5,
       avatar: "AS"
+    },
+    {
+      id: 5,
+      name: "Kavita Reddy",
+      location: "Hyderabad",
+      text: "Excellent customer service and well-organized itinerary. The Rajasthan tour was absolutely spectacular!",
+      rating: 5,
+      avatar: "KR"
     }
   ];
 
@@ -42,7 +50,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 2) % testimonials.length);
-    }, 3000); // Changed to 3 seconds for better readability
+    }, 500); // Changed to 0.5 seconds as requested
 
     return () => clearInterval(interval);
   }, [testimonials.length]);

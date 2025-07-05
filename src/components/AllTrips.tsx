@@ -1,5 +1,6 @@
 
 import { Link } from "react-router-dom";
+import { Users, Utensils, MapPin } from "lucide-react";
 
 const AllTrips = () => {
   const featuredTrips = [
@@ -9,7 +10,10 @@ const AllTrips = () => {
       description: "Cruise through serene backwaters and lush green landscapes",
       duration: "4 Days",
       price: "₹15,000",
-      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "4-8 people"
     },
     {
       id: 2,
@@ -17,7 +21,10 @@ const AllTrips = () => {
       description: "Explore magnificent palaces and rich cultural heritage",
       duration: "8 Days",
       price: "₹35,000",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "12-20 people"
     },
     {
       id: 3,
@@ -25,7 +32,10 @@ const AllTrips = () => {
       description: "High altitude desert with stunning monasteries and landscapes",
       duration: "10 Days",
       price: "₹45,000",
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "6-10 people"
     }
   ];
 
@@ -51,7 +61,7 @@ const AllTrips = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured Trip Packages
+            More Trips
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Discover our handpicked selection of amazing travel experiences.
@@ -72,6 +82,22 @@ const AllTrips = () => {
               <div className="p-6">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{trip.title}</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">{trip.description}</p>
+                
+                {/* Trip Details */}
+                <div className="flex items-center gap-4 mb-4 text-sm text-gray-600 dark:text-gray-300">
+                  <div className="flex items-center space-x-1">
+                    <Utensils className="h-4 w-4 text-purple-600" />
+                    <span>{trip.foodIncluded ? "Food ✓" : "Food ✗"}</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <MapPin className="h-4 w-4 text-purple-600" />
+                    <span>{trip.guideAvailable ? "Guide ✓" : "Guide ✗"}</span>
+                  </div>
+                  <div className="flex items-center space-x-1">
+                    <Users className="h-4 w-4 text-purple-600" />
+                    <span>{trip.groupSize}</span>
+                  </div>
+                </div>
                 
                 <div className="flex justify-between items-center mb-4">
                   <span className="text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-full">

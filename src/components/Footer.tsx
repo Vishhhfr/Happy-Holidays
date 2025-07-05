@@ -1,9 +1,11 @@
 
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer id="contact" className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Company Info */}
           <div>
             <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
@@ -29,23 +31,10 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Our Services</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Destinations</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Travel Packages</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Gallery</a></li>
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Our Services</h4>
-            <ul className="space-y-2">
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Flight Booking</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Hotel Reservation</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Car Rental</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Tour Packages</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-white transition-colors">Travel Insurance</a></li>
+              <li><Link to="/about" className="text-gray-300 hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/packages" className="text-gray-300 hover:text-white transition-colors">Destinations</Link></li>
+              <li><Link to="/packages" className="text-gray-300 hover:text-white transition-colors">Travel Packages</Link></li>
+              <li><Link to="/settings" className="text-gray-300 hover:text-white transition-colors">Support</Link></li>
             </ul>
           </div>
 
@@ -55,11 +44,11 @@ const Footer = () => {
             <div className="space-y-3">
               <div>
                 <p className="text-gray-300">📍 Address:</p>
-                <p className="text-sm">123 Travel Street, Tourism City, TC 12345</p>
+                <p className="text-sm">123 Travel Street, Mumbai, Maharashtra 400001</p>
               </div>
               <div>
                 <p className="text-gray-300">📞 Phone:</p>
-                <p className="text-sm">+91 98765 43210</p>
+                <p className="text-sm">+91 7984527433</p>
               </div>
               <div>
                 <p className="text-gray-300">✉️ Email:</p>

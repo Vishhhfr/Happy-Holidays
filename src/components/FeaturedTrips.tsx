@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Users, Utensils, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const FeaturedTrips = () => {
@@ -13,7 +14,13 @@ const FeaturedTrips = () => {
       duration: "7 Days",
       price: "₹25,000",
       gradient: "from-blue-400 to-purple-500",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "8-12 people",
+      accommodation: "3-star hotels",
+      transportation: "AC Bus",
+      activities: ["Paragliding", "River Rafting", "Trekking"]
     },
     {
       id: 2,
@@ -22,7 +29,13 @@ const FeaturedTrips = () => {
       duration: "5 Days",
       price: "₹18,000",
       gradient: "from-orange-400 to-pink-500",
-      image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: false,
+      groupSize: "6-10 people",
+      accommodation: "Beach resort",
+      transportation: "Flight + Taxi",
+      activities: ["Beach Sports", "Water Scooter", "Dolphin Watching"]
     },
     {
       id: 3,
@@ -31,7 +44,13 @@ const FeaturedTrips = () => {
       duration: "6 Days",
       price: "₹22,000",
       gradient: "from-green-400 to-blue-500",
-      image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "10-15 people",
+      accommodation: "Hill station hotels",
+      transportation: "Volvo Bus",
+      activities: ["Nature Walks", "Photography", "Local Sightseeing"]
     },
     {
       id: 4,
@@ -40,7 +59,13 @@ const FeaturedTrips = () => {
       duration: "8 Days",
       price: "₹28,000",
       gradient: "from-teal-400 to-green-500",
-      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "4-8 people",
+      accommodation: "Houseboat + Resort",
+      transportation: "Train + Bus",
+      activities: ["Houseboat Cruise", "Spice Garden Visit", "Cultural Shows"]
     },
     {
       id: 5,
@@ -49,7 +74,13 @@ const FeaturedTrips = () => {
       duration: "10 Days",
       price: "₹35,000",
       gradient: "from-yellow-400 to-red-500",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "12-20 people",
+      accommodation: "Heritage hotels",
+      transportation: "AC Coach",
+      activities: ["Palace Tours", "Camel Safari", "Folk Dance Shows"]
     },
   ];
 
@@ -85,14 +116,14 @@ const FeaturedTrips = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            More Trip Packages
+            Featured Trips for You!
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Handpicked destinations that offer the perfect blend of adventure, relaxation, and cultural experiences.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-6xl mx-auto">
           {/* Navigation Buttons */}
           <Button
             onClick={prevTrip}
@@ -130,6 +161,43 @@ const FeaturedTrips = () => {
             <div className="p-8">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{currentTrip.title}</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">{currentTrip.description}</p>
+              
+              {/* Trip Details */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                <div className="flex items-center space-x-2">
+                  <Utensils className="h-5 w-5 text-purple-600" />
+                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                    {currentTrip.foodIncluded ? "Food Included" : "Food Not Included"}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <MapPin className="h-5 w-5 text-purple-600" />
+                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                    {currentTrip.guideAvailable ? "Guide Available" : "Self Guided"}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Users className="h-5 w-5 text-purple-600" />
+                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                    {currentTrip.groupSize}
+                  </span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Calendar className="h-5 w-5 text-purple-600" />
+                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                    {currentTrip.accommodation}
+                  </span>
+                </div>
+              </div>
+
+              <div className="mb-4">
+                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                  <strong>Transportation:</strong> {currentTrip.transportation}
+                </p>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <strong>Activities:</strong> {currentTrip.activities.join(", ")}
+                </p>
+              </div>
               
               <div className="flex justify-between items-center mb-6">
                 <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-lavender-600 bg-clip-text text-transparent">{currentTrip.price}</span>
