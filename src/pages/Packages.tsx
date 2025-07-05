@@ -1,3 +1,4 @@
+
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Users, Utensils, MapPin, Calendar, Car, Star } from "lucide-react";
@@ -25,7 +26,14 @@ const Packages = () => {
       description: "Explore magnificent palaces and rich cultural heritage",
       duration: "8 Days",
       price: "₹35,000",
-      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "6-12 people",
+      accommodation: "Heritage Hotels",
+      transportation: "AC Bus + Train",
+      activities: ["Palace Tours", "Camel Safari", "Cultural Performances"],
+      rating: 4.7
     },
     {
       id: 3,
@@ -33,7 +41,14 @@ const Packages = () => {
       description: "High altitude desert with stunning monasteries and landscapes",
       duration: "10 Days",
       price: "₹45,000",
-      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1472396961693-142e6e269027?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "4-8 people",
+      accommodation: "Camps + Hotels",
+      transportation: "Flight + Bus",
+      activities: ["Monastery Visits", "Trekking", "Mountain Biking"],
+      rating: 4.9
     },
     {
       id: 4,
@@ -41,7 +56,14 @@ const Packages = () => {
       description: "Experience the beauty of snow-capped mountains and adventure sports",
       duration: "7 Days",
       price: "₹25,000",
-      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "4-10 people",
+      accommodation: "Hotels + Cottages",
+      transportation: "Bus + Taxi",
+      activities: ["Paragliding", "River Rafting", "Trekking"],
+      rating: 4.6
     },
     {
       id: 5,
@@ -49,7 +71,14 @@ const Packages = () => {
       description: "Relax on pristine beaches with vibrant nightlife and rich Portuguese culture",
       duration: "5 Days",
       price: "₹18,000",
-      image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: false,
+      groupSize: "2-8 people",
+      accommodation: "Beach Resorts",
+      transportation: "Flight + Taxi",
+      activities: ["Beach Activities", "Water Sports", "Nightlife"],
+      rating: 4.5
     },
     {
       id: 6,
@@ -57,7 +86,14 @@ const Packages = () => {
       description: "Discover serene hill stations with breathtaking valley views",
       duration: "6 Days",
       price: "₹22,000",
-      image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "4-8 people",
+      accommodation: "Hill Resorts",
+      transportation: "Bus + Taxi",
+      activities: ["Nature Walks", "Sightseeing", "Photography"],
+      rating: 4.4
     },
     {
       id: 7,
@@ -65,7 +101,14 @@ const Packages = () => {
       description: "Heaven on earth with beautiful gardens, lakes, and houseboats",
       duration: "9 Days",
       price: "₹32,000",
-      image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "4-10 people",
+      accommodation: "Houseboats + Hotels",
+      transportation: "Flight + Bus",
+      activities: ["Shikara Rides", "Garden Tours", "Shopping"],
+      rating: 4.8
     },
     {
       id: 8,
@@ -73,7 +116,14 @@ const Packages = () => {
       description: "Crystal clear waters, white sandy beaches, and coral reefs",
       duration: "6 Days",
       price: "₹28,000",
-      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "2-6 people",
+      accommodation: "Beach Resorts",
+      transportation: "Flight + Ferry",
+      activities: ["Snorkeling", "Scuba Diving", "Island Hopping"],
+      rating: 4.7
     },
     {
       id: 9,
@@ -81,7 +131,14 @@ const Packages = () => {
       description: "Visit sacred temples and experience spiritual tranquility",
       duration: "8 Days",
       price: "₹24,000",
-      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "6-12 people",
+      accommodation: "Ashrams + Hotels",
+      transportation: "Train + Bus",
+      activities: ["Temple Visits", "Yoga Sessions", "Meditation"],
+      rating: 4.6
     },
     {
       id: 10,
@@ -89,7 +146,14 @@ const Packages = () => {
       description: "Explore ancient temples and rich cultural heritage",
       duration: "7 Days",
       price: "₹21,000",
-      image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "8-15 people",
+      accommodation: "Hotels",
+      transportation: "Bus + Train",
+      activities: ["Temple Tours", "Cultural Shows", "Local Cuisine"],
+      rating: 4.5
     },
     {
       id: 11,
@@ -97,7 +161,14 @@ const Packages = () => {
       description: "Discover the unexplored beauty of Seven Sister States",
       duration: "12 Days",
       price: "₹38,000",
-      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "6-10 people",
+      accommodation: "Local Stays + Hotels",
+      transportation: "Flight + Bus",
+      activities: ["Tribal Culture", "Nature Trails", "Adventure Sports"],
+      rating: 4.8
     },
     {
       id: 12,
@@ -105,7 +176,14 @@ const Packages = () => {
       description: "Encounter diverse wildlife in lush green forests",
       duration: "5 Days",
       price: "₹19,000",
-      image: "https://images.unsplash.com/photo-1549366021-9f761d040a94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+      image: "https://images.unsplash.com/photo-1549366021-9f761d040a94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      foodIncluded: true,
+      guideAvailable: true,
+      groupSize: "4-8 people",
+      accommodation: "Forest Lodges",
+      transportation: "Bus + Jeep",
+      activities: ["Wildlife Safari", "Bird Watching", "Nature Photography"],
+      rating: 4.7
     }
   ];
 
