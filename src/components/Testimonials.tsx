@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 
 const Testimonials = () => {
@@ -6,7 +5,7 @@ const Testimonials = () => {
     {
       id: 1,
       name: "Priya Sharma",
-      location: "Mumbai",
+      location: "Mumbai", 
       text: "Amazing experience with Happy Holidays! The Goa trip was perfectly planned and executed. Highly recommended!",
       rating: 5,
       avatar: "PS"
@@ -50,7 +49,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 2) % testimonials.length);
-    }, 500); // Changed to 0.5 seconds as requested
+    }, 1500); // Changed to 1.5 seconds as requested
 
     return () => clearInterval(interval);
   }, [testimonials.length]);
