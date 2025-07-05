@@ -51,6 +51,54 @@ const Packages = () => {
       duration: "6 Days",
       price: "₹22,000",
       image: "https://images.unsplash.com/photo-1571115764595-644a1f56a55c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: 7,
+      title: "Kashmir Paradise",
+      description: "Heaven on earth with beautiful gardens, lakes, and houseboats",
+      duration: "9 Days",
+      price: "₹32,000",
+      image: "https://images.unsplash.com/photo-1605640840605-14ac1855827b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: 8,
+      title: "Andaman Island Getaway",
+      description: "Crystal clear waters, white sandy beaches, and coral reefs",
+      duration: "6 Days",
+      price: "₹28,000",
+      image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: 9,
+      title: "Uttarakhand Spiritual Journey",
+      description: "Visit sacred temples and experience spiritual tranquility",
+      duration: "8 Days",
+      price: "₹24,000",
+      image: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: 10,
+      title: "Tamil Nadu Temple Tour",
+      description: "Explore ancient temples and rich cultural heritage",
+      duration: "7 Days",
+      price: "₹21,000",
+      image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: 11,
+      title: "Northeast Explorer",
+      description: "Discover the unexplored beauty of Seven Sister States",
+      duration: "12 Days",
+      price: "₹38,000",
+      image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      id: 12,
+      title: "Western Ghats Wildlife Safari",
+      description: "Encounter diverse wildlife in lush green forests",
+      duration: "5 Days",
+      price: "₹19,000",
+      image: "https://images.unsplash.com/photo-1549366021-9f761d040a94?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
     }
   ];
 

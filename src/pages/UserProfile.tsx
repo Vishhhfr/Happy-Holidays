@@ -1,12 +1,12 @@
 
-import { useState } from "react";
-import { User, Edit, Calendar, MapPin, Phone, Mail, ShoppingBag, ArrowLeft } from "lucide-react";
+import { useState, useEffect } from "react";
+import { User, Edit, Calendar, MapPin, Phone, Mail, ShoppingBag, ArrowLeft, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
 
 const UserProfile = () => {
-  const [userInfo] = useState({
+  const [userInfo, setUserInfo] = useState({
     name: "Guest User",
     email: "guest@example.com",
     phone: "",
@@ -15,6 +15,48 @@ const UserProfile = () => {
     totalOrders: 0,
     isActive: true
   });
+
+  const [cartItems, setCartItems] = useState<any[]>([]);
+  const [recentlyViewed, setRecentlyViewed] = useState<any[]>([]);
+
+  useEffect(() => {
+    // Get user email from localStorage if available
+    const userEmail = localStorage.getItem('user_email') || 'guest@example.com';
+    const userName = userEmail === 'guest@example.com' ? 'Guest User' : userEmail.split('@')[0];
+    
+    setUserInfo(prev => ({
+      ...prev,
+      name: userName,
+      email: userEmail
+    }));
+
+    // Load cart items
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    setCartItems(cart.slice(0, 3)); // Show only first 3 items
+
+    // Mock recently viewed trips (in a real app, this would come from user's browsing history)
+    const recentTrips = [
+      {
+        id: 1,
+        title: "Kerala Backwaters",
+        image: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        price: "₹15,000"
+      },
+      {
+        id: 2,
+        title: "Rajasthan Royal Tour",
+        image: "https://images.unsplash.com/photo-1466442929976-97f336a657be?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        price: "₹35,000"
+      },
+      {
+        id: 3,
+        title: "Manali Adventure",
+        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+        price: "₹25,000"
+      }
+    ];
+    setRecentlyViewed(recentTrips);
+  }, []);
 
   return (
     <div className="min-h-screen bg-background">
@@ -96,22 +138,56 @@ const UserProfile = () => {
               </div>
             </div>
 
-            {/* Recent Bookings */}
+            {/* Recent Cart Items */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
               <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                 <ShoppingBag className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-                Recent Bookings
+                Recent Cart Items
               </h2>
               
-              <div className="text-center py-12">
-                <ShoppingBag className="h-16 w-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">No bookings yet</h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">Start exploring our amazing travel packages!</p>
-                <Link to="/home">
-                  <Button className="bg-gradient-to-r from-purple-600 to-lavender-600 hover:from-purple-700 hover:to-lavender-700">
-                    Browse Trips
-                  </Button>
-                </Link>
+              {cartItems.length > 0 ? (
+                <div className="space-y-4">
+                  {cartItems.map((item) => (
+                    <div key={item.id} className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                      <img src={item.image} alt={item.title} className="w-16 h-16 object-cover rounded-lg" />
+                      <div className="flex-1">
+                        <h4 className="font-medium text-gray-900 dark:text-white">{item.title}</h4>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">{item.duration}</p>
+                        <p className="text-lg font-bold text-purple-600 dark:text-purple-400">{item.price}</p>
+                      </div>
+                    </div>
+                  ))}
+                  <Link to="/cart">
+                    <Button className="w-full bg-gradient-to-r from-purple-600 to-lavender-600 hover:from-purple-700 hover:to-lavender-700">
+                      View Full Cart
+                   </Button>
+                  </Link>
+                </div>
+              ) : (
+                <div className="text-center py-8">
+                  <ShoppingBag className="h-12 w-12 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
+                  <p className="text-gray-600 dark:text-gray-400">No items in cart yet</p>
+                </div>
+              )}
+            </div>
+
+            {/* Recently Viewed */}
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
+              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                <Eye className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                Recently Viewed Trips
+              </h2>
+              
+              <div className="space-y-4">
+                {recentlyViewed.map((trip) => (
+                  <div key={trip.id} className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <img src={trip.image} alt={trip.title} className="w-16 h-16 object-cover rounded-lg" />
+                    <div className="flex-1">
+                      <h4 className="font-medium text-gray-900 dark:text-white">{trip.title}</h4>
+                      <p className="text-lg font-bold text-purple-600 dark:text-purple-400">{trip.price}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -133,8 +209,8 @@ const UserProfile = () => {
                 <div className="flex items-center gap-3 p-3 bg-lavender-50 dark:bg-lavender-900/20 rounded-lg">
                   <ShoppingBag className="h-5 w-5 text-lavender-600 dark:text-lavender-400" />
                   <div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Total Orders</p>
-                    <p className="font-semibold text-gray-900 dark:text-white">{userInfo.totalOrders} Orders</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Items in Cart</p>
+                    <p className="font-semibold text-gray-900 dark:text-white">{cartItems.length} Items</p>
                   </div>
                 </div>
               </div>
@@ -159,6 +235,13 @@ const UserProfile = () => {
                   <MapPin className="h-4 w-4 mr-2" />
                   Add Address
                 </Button>
+
+                <Link to="/packages">
+                  <Button variant="outline" className="w-full justify-start">
+                    <Eye className="h-4 w-4 mr-2" />
+                    Browse More Trips
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>

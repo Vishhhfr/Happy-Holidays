@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Settings as SettingsIcon, Bell, Shield, HelpCircle, Info, ChevronRight, Moon, Sun, Monitor, ArrowLeft } from "lucide-react";
+import { Settings as SettingsIcon, Bell, Shield, HelpCircle, Info, ChevronRight, Moon, Sun, Monitor, ArrowLeft, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { useTheme } from "@/components/ThemeProvider";
@@ -9,11 +9,36 @@ import { Link } from "react-router-dom";
 const Settings = () => {
   const { theme, setTheme } = useTheme();
   const [notifications, setNotifications] = useState({
-    orderStatus: true,
-    delivery: true,
+    newTrips: true,
+    discounts: true,
     promotions: false,
     email: true,
   });
+
+  const [showFAQ, setShowFAQ] = useState(false);
+
+  const faqs = [
+    {
+      question: "How do I book a trip?",
+      answer: "Simply browse our packages, add your preferred trips to cart, and proceed to checkout. You can pay online or choose other payment options."
+    },
+    {
+      question: "Can I modify or cancel my booking?",
+      answer: "Yes, you can modify or cancel your booking up to 48 hours before the departure date. Cancellation charges may apply as per our policy."
+    },
+    {
+      question: "What documents do I need for travel?",
+      answer: "For domestic travel, a valid government ID is required. For international trips, you'll need a passport and visa (if applicable)."
+    },
+    {
+      question: "Are meals included in the packages?",
+      answer: "Most of our packages include breakfast and dinner. Specific meal inclusions are mentioned in each package description."
+    },
+    {
+      question: "What if there's bad weather during my trip?",
+      answer: "We monitor weather conditions closely. In case of severe weather, we may reschedule activities or provide alternative arrangements for your safety."
+    }
+  ];
 
   const handleLogout = () => {
     localStorage.removeItem('user_authenticated');
@@ -90,30 +115,30 @@ const Settings = () => {
             <div className="space-y-4">
               <div className="flex items-center justify-between py-3">
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white">Order status updates</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Get notified about your booking status</p>
+                  <h4 className="font-medium text-gray-900 dark:text-white">New trip launches</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Get notified when we launch new travel packages</p>
                 </div>
                 <Switch
-                  checked={notifications.orderStatus}
-                  onCheckedChange={(checked) => handleNotificationChange('orderStatus', checked)}
+                  checked={notifications.newTrips}
+                  onCheckedChange={(checked) => handleNotificationChange('newTrips', checked)}
                 />
               </div>
               
               <div className="flex items-center justify-between py-3">
                 <div>
-                  <h4 className="font-medium text-gray-900 dark:text-white">Delivery notifications</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Updates about your trip documents</p>
+                  <h4 className="font-medium text-gray-900 dark:text-white">Trip discounts and offers</h4>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">Special deals and discounts on travel packages</p>
                 </div>
                 <Switch
-                  checked={notifications.delivery}
-                  onCheckedChange={(checked) => handleNotificationChange('delivery', checked)}
+                  checked={notifications.discounts}
+                  onCheckedChange={(checked) => handleNotificationChange('discounts', checked)}
                 />
               </div>
               
               <div className="flex items-center justify-between py-3">
                 <div>
                   <h4 className="font-medium text-gray-900 dark:text-white">Promotions and offers</h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">Special deals and discounts</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">General promotional content and seasonal offers</p>
                 </div>
                 <Switch
                   checked={notifications.promotions}
@@ -153,20 +178,43 @@ const Settings = () => {
                 <ChevronRight className="h-5 w-5 text-gray-400" />
               </Link>
               
-              <div className="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer">
+              <div 
+                onClick={() => setShowFAQ(!showFAQ)}
+                className="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer"
+              >
                 <div className="flex items-center gap-3">
                   <HelpCircle className="h-5 w-5 text-gray-600 dark:text-gray-400" />
                   <span className="font-medium text-gray-900 dark:text-white">Frequently Asked Questions</span>
                 </div>
-                <ChevronRight className="h-5 w-5 text-gray-400" />
+                <ChevronRight className={`h-5 w-5 text-gray-400 transition-transform ${showFAQ ? 'rotate-90' : ''}`} />
               </div>
+
+              {showFAQ && (
+                <div className="ml-8 space-y-4 border-l-2 border-purple-200 dark:border-purple-700 pl-4">
+                  {faqs.map((faq, index) => (
+                    <div key={index} className="pb-4">
+                      <h4 className="font-medium text-gray-900 dark:text-white mb-2">{faq.question}</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">{faq.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
               
-              <div className="flex items-center justify-between p-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors cursor-pointer">
-                <div className="flex items-center gap-3">
+              <div className="p-4 rounded-lg bg-gray-50 dark:bg-gray-700">
+                <div className="flex items-center gap-3 mb-3">
                   <Bell className="h-5 w-5 text-gray-600 dark:text-gray-400" />
                   <span className="font-medium text-gray-900 dark:text-white">Contact Support</span>
                 </div>
-                <ChevronRight className="h-5 w-5 text-gray-400" />
+                <div className="space-y-2 ml-8">
+                  <div className="flex items-center gap-2">
+                    <Phone className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-600 dark:text-gray-400">+91 98765 43210</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="h-4 w-4 text-gray-500 dark:text-gray-400" />
+                    <span className="text-sm text-gray-600 dark:text-gray-400">support@happyholidays.com</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
