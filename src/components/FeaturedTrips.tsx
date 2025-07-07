@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Users, Utensils, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,7 +8,7 @@ const FeaturedTrips = () => {
   const featuredTrips = [
     {
       id: 1,
-      title: "Manali Adventure",
+      title: "Manali Adventure", 
       description: "Experience the beauty of snow-capped mountains and adventure sports in the heart of Himachal Pradesh",
       duration: "7 Days",
       price: "₹25,000",
@@ -26,7 +25,7 @@ const FeaturedTrips = () => {
       id: 2,
       title: "Goa Beach Paradise",
       description: "Relax on pristine beaches with vibrant nightlife and rich Portuguese culture",
-      duration: "5 Days",
+      duration: "5 Days", 
       price: "₹18,000",
       gradient: "from-orange-400 to-pink-500",
       image: "https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
@@ -124,12 +123,12 @@ const FeaturedTrips = () => {
         </div>
 
         <div className="relative max-w-6xl mx-auto">
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Fixed positioning to avoid overlap */}
           <Button
             onClick={prevTrip}
             variant="outline"
             size="icon"
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 border-purple-200 dark:border-gray-600"
+            className="absolute left-0 md:left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 border-purple-200 dark:border-gray-600 shadow-lg"
           >
             <ChevronLeft className="h-6 w-6" />
           </Button>
@@ -138,13 +137,13 @@ const FeaturedTrips = () => {
             onClick={nextTrip}
             variant="outline"
             size="icon"
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 border-purple-200 dark:border-gray-600"
+            className="absolute right-0 md:right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 border-purple-200 dark:border-gray-600 shadow-lg"
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
 
-          {/* Trip Card */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-purple-100 dark:border-gray-700 transition-all duration-500">
+          {/* Trip Card - Added proper margin to prevent overlap */}
+          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-purple-100 dark:border-gray-700 transition-all duration-500 mx-12 md:mx-16">
             {/* Featured Image */}
             <div className="h-80 overflow-hidden relative">
               <img 
@@ -162,7 +161,6 @@ const FeaturedTrips = () => {
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{currentTrip.title}</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">{currentTrip.description}</p>
               
-              {/* Trip Details */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
                 <div className="flex items-center space-x-2">
                   <Utensils className="h-5 w-5 text-purple-600" />

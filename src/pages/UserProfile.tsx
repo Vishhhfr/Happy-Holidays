@@ -3,6 +3,7 @@ import { User, Edit, Calendar, MapPin, Phone, Mail, ShoppingBag, ArrowLeft, Eye 
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Link } from "react-router-dom";
+import ProfileEditForm from "@/components/ProfileEditForm";
 
 const UserProfile = () => {
   const [userInfo, setUserInfo] = useState({
@@ -17,6 +18,7 @@ const UserProfile = () => {
 
   const [cartItems, setCartItems] = useState<any[]>([]);
   const [recentlyViewed, setRecentlyViewed] = useState<any[]>([]);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     // Get user type and email from localStorage
@@ -94,6 +96,15 @@ const UserProfile = () => {
   const saveUserData = (updatedInfo: any) => {
     localStorage.setItem('user_profile_data', JSON.stringify(updatedInfo));
     setUserInfo(updatedInfo);
+    setIsEditing(false);
+  };
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleCancelEdit = () => {
+    setIsEditing(false);
   };
 
   return (
@@ -129,7 +140,11 @@ const UserProfile = () => {
               </div>
             </div>
             
-            <Button variant="secondary" className="bg-white/20 hover:bg-white/30 text-white border-white/20">
+            <Button 
+              variant="secondary" 
+              className="bg-white/20 hover:bg-white/30 text-white border-white/20"
+              onClick={handleEditClick}
+            >
               <Edit className="h-4 w-4 mr-2" />
               Edit Profile
             </Button>
@@ -139,42 +154,50 @@ const UserProfile = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Profile Information */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
-              <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
-                <User className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-                Personal Information
-              </h2>
-              
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                  <Mail className="h-5 w-5 text-gray-600 dark:text-gray-400" />
-                  <div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Email</p>
-                    <p className="font-medium text-gray-900 dark:text-white">{userInfo.email}</p>
-                  </div>
-                </div>
+            {isEditing ? (
+              <ProfileEditForm 
+                userInfo={userInfo}
+                onSave={saveUserData}
+                onCancel={handleCancelEdit}
+              />
+            ) : (
+              <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+                  <User className="h-5 w-5 text-purple-600 dark:text-purple-400" />
+                  Personal Information
+                </h2>
                 
-                <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                  <Phone className="h-5 w-5 text-gray-600 dark:text-gray-400" />
-                  <div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Phone Number</p>
-                    <p className="font-medium text-gray-900 dark:text-white">
-                      {userInfo.phone || "Add phone number"}
-                    </p>
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <Mail className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                    <div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Email</p>
+                      <p className="font-medium text-gray-900 dark:text-white">{userInfo.email}</p>
+                    </div>
                   </div>
-                </div>
-                
-                <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                  <MapPin className="h-5 w-5 text-gray-600 dark:text-gray-400 mt-1" />
-                  <div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Delivery Address</p>
-                    <p className="font-medium text-gray-900 dark:text-white">
-                      {userInfo.address || "Add delivery address"}
-                    </p>
+                  
+                  <div className="flex items-center gap-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <Phone className="h-5 w-5 text-gray-600 dark:text-gray-400" />
+                    <div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Phone Number</p>
+                      <p className="font-medium text-gray-900 dark:text-white">
+                        {userInfo.phone || "Add phone number"}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                    <MapPin className="h-5 w-5 text-gray-600 dark:text-gray-400 mt-1" />
+                    <div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Delivery Address</p>
+                      <p className="font-medium text-gray-900 dark:text-white">
+                        {userInfo.address || "Add delivery address"}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
 
             {/* Recent Cart Items */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
@@ -259,17 +282,17 @@ const UserProfile = () => {
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
               
               <div className="space-y-3">
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={handleEditClick}>
                   <Edit className="h-4 w-4 mr-2" />
                   Edit Profile
                 </Button>
                 
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={handleEditClick}>
                   <Phone className="h-4 w-4 mr-2" />
                   Add Phone Number
                 </Button>
                 
-                <Button variant="outline" className="w-full justify-start">
+                <Button variant="outline" className="w-full justify-start" onClick={handleEditClick}>
                   <MapPin className="h-4 w-4 mr-2" />
                   Add Address
                 </Button>
