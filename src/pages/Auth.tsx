@@ -18,9 +18,20 @@ const Auth = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // For now, just simulate login - will implement with Supabase later
+    // Store user information for registered users
     localStorage.setItem('user_authenticated', 'true');
     localStorage.setItem('user_type', 'registered');
+    localStorage.setItem('user_email', formData.email);
+    
+    // Store additional user profile data
+    const profileData = {
+      name: formData.name || formData.email.split('@')[0],
+      email: formData.email,
+      phone: formData.mobile || "",
+      memberSince: new Date().toLocaleDateString()
+    };
+    localStorage.setItem('user_profile_data', JSON.stringify(profileData));
+    
     window.location.href = '/home';
   };
 
@@ -28,6 +39,8 @@ const Auth = () => {
     // Set guest authentication
     localStorage.setItem('user_authenticated', 'true');
     localStorage.setItem('user_type', 'guest');
+    localStorage.removeItem('user_email'); // Clear any existing email
+    localStorage.removeItem('user_profile_data'); // Clear any existing profile data
     window.location.href = '/home';
   };
 

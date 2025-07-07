@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { User, Edit, Calendar, MapPin, Phone, Mail, ShoppingBag, ArrowLeft, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -8,7 +7,7 @@ import { Link } from "react-router-dom";
 const UserProfile = () => {
   const [userInfo, setUserInfo] = useState({
     name: "Guest User",
-    email: "guest@example.com",
+    email: "guest@example.com", 
     phone: "",
     address: "",
     memberSince: "7/4/2025",
@@ -20,15 +19,49 @@ const UserProfile = () => {
   const [recentlyViewed, setRecentlyViewed] = useState<any[]>([]);
 
   useEffect(() => {
-    // Get user email from localStorage if available
-    const userEmail = localStorage.getItem('user_email') || 'guest@example.com';
-    const userName = userEmail === 'guest@example.com' ? 'Guest User' : userEmail.split('@')[0];
+    // Get user type and email from localStorage
+    const userType = localStorage.getItem('user_type') || 'guest';
+    const storedUserEmail = localStorage.getItem('user_email');
     
-    setUserInfo(prev => ({
-      ...prev,
-      name: userName,
-      email: userEmail
-    }));
+    let userEmail = 'guest@example.com';
+    let userName = 'Guest User';
+    
+    if (userType === 'registered' && storedUserEmail) {
+      // For registered users, use the stored email
+      userEmail = storedUserEmail;
+      userName = storedUserEmail.split('@')[0];
+    } else if (userType === 'guest') {
+      // For guest users, keep default values
+      userEmail = 'guest@example.com';
+      userName = 'Guest User';
+    }
+    
+    // Try to get additional user data from localStorage if available
+    const storedUserData = localStorage.getItem('user_profile_data');
+    if (storedUserData) {
+      try {
+        const userData = JSON.parse(storedUserData);
+        setUserInfo(prev => ({
+          ...prev,
+          ...userData,
+          name: userData.name || userName,
+          email: userData.email || userEmail
+        }));
+      } catch (error) {
+        console.log('Error parsing stored user data:', error);
+        setUserInfo(prev => ({
+          ...prev,
+          name: userName,
+          email: userEmail
+        }));
+      }
+    } else {
+      setUserInfo(prev => ({
+        ...prev,
+        name: userName,
+        email: userEmail
+      }));
+    }
 
     // Load cart items
     const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -57,6 +90,11 @@ const UserProfile = () => {
     ];
     setRecentlyViewed(recentTrips);
   }, []);
+
+  const saveUserData = (updatedInfo: any) => {
+    localStorage.setItem('user_profile_data', JSON.stringify(updatedInfo));
+    setUserInfo(updatedInfo);
+  };
 
   return (
     <div className="min-h-screen bg-background">
