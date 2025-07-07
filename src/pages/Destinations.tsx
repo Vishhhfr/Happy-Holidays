@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { MapPin, Star, Calendar, Users, Camera } from "lucide-react";
+import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -277,9 +278,11 @@ const Destinations = () => {
                   </div>
 
                   <div className="pt-4">
-                    <button className="w-full bg-gradient-to-r from-purple-600 to-lavender-600 hover:from-purple-700 hover:to-lavender-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-200 transform hover:scale-105">
-                      View Packages
-                    </button>
+                    <Link to="/packages">
+                      <button className="w-full bg-gradient-to-r from-purple-600 to-lavender-600 hover:from-purple-700 hover:to-lavender-700 text-white py-3 px-6 rounded-lg font-medium transition-all duration-200 transform hover:scale-105">
+                        View Packages
+                      </button>
+                    </Link>
                   </div>
                 </CardContent>
               </Card>
@@ -307,7 +310,7 @@ const Destinations = () => {
               <div className="text-3xl font-bold text-purple-600 mb-2">226+</div>
               <div className="text-gray-600 dark:text-gray-400">Successful Trips</div>
             </div>
-            <div className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+            <div className="bg-white dark:bg-gray-900 rounded-xl p6 shadow-lg">
               <div className="text-3xl font-bold text-purple-600 mb-2">1000+</div>
               <div className="text-gray-600 dark:text-gray-400">Happy Customers</div>
             </div>
