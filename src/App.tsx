@@ -11,6 +11,7 @@ import Settings from "./pages/Settings";
 import UserProfile from "./pages/UserProfile";
 import About from "./pages/About";
 import Packages from "./pages/Packages";
+import Destinations from "./pages/Destinations";
 import Cart from "./pages/Cart";
 import NotFound from "./pages/NotFound";
 
@@ -42,6 +43,11 @@ const App = () => (
             <Route path="/packages" element={
               <ProtectedRoute>
                 <Packages />
+              </ProtectedRoute>
+            } />
+            <Route path="/destinations" element={
+              <ProtectedRoute>
+                <Destinations />
               </ProtectedRoute>
             } />
             <Route path="/cart" element={
