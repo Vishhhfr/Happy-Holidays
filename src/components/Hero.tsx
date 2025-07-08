@@ -32,10 +32,10 @@ const Hero = () => {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="btn-organic bg-gradient-sunset text-white font-body font-semibold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+          <button className="btn-organic bg-gradient-to-r from-lavender-500 to-lavender-600 hover:from-lavender-600 hover:to-lavender-700 text-white font-body font-semibold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
             Discover Destinations
           </button>
-          <button className="btn-organic border-2 border-white/80 text-white hover:bg-white hover:text-gray-900 font-body font-semibold py-4 px-8 text-lg transition-all duration-300 backdrop-blur-subtle">
+          <button className="btn-organic bg-gradient-to-r from-lavender-500 to-lavender-600 hover:from-lavender-600 hover:to-lavender-700 text-white font-body font-semibold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
             View Our Packages
           </button>
         </div>
