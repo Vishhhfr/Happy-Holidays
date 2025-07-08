@@ -27,7 +27,7 @@ const Statistics = () => {
     <section className="py-20 bg-gradient-ocean">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="font-script text-3xl text-yellow-300 mb-2 block">
+          <span className="font-body text-2xl md:text-3xl text-yellow-300 mb-2 block font-medium">
             Our Journey So Far
           </span>
           <h2 className="font-display text-display-sm md:text-display-md font-bold text-white mb-6">

@@ -15,13 +15,13 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
-          <span className="font-script text-4xl md:text-6xl text-yellow-300 animate-float block mb-2">
+          <span className="font-body text-3xl md:text-5xl text-yellow-300 animate-float block mb-2 font-medium">
             Welcome to
           </span>
           <h1 className="font-display text-display-md md:text-display-lg font-bold text-shadow-strong animate-fade-in">
             Happy Holidays
           </h1>
-          <div className="font-script text-2xl md:text-4xl text-orange-300 mt-2">
+          <div className="font-body text-xl md:text-3xl text-orange-300 mt-2 font-medium">
             Explorer
           </div>
         </div>

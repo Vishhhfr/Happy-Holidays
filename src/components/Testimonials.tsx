@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 
 const Testimonials = () => {
@@ -49,7 +50,7 @@ const Testimonials = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 2) % testimonials.length);
-    }, 1500); // Changed to 1.5 seconds as requested
+    }, 1500);
 
     return () => clearInterval(interval);
   }, [testimonials.length]);
@@ -75,10 +76,10 @@ const Testimonials = () => {
     <section className="py-16 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="font-display text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             What Our Customers Say
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="font-body text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Real experiences from real travelers who trusted us with their dream vacations.
           </p>
         </div>
@@ -94,8 +95,8 @@ const Testimonials = () => {
                   {testimonial.avatar}
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">{testimonial.location}</p>
+                  <h4 className="font-body font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
+                  <p className="font-body text-gray-600 dark:text-gray-400 text-sm">{testimonial.location}</p>
                 </div>
               </div>
               
@@ -103,7 +104,7 @@ const Testimonials = () => {
                 {renderStars(testimonial.rating)}
               </div>
               
-              <p className="text-gray-700 dark:text-gray-300 italic">"{testimonial.text}"</p>
+              <p className="font-body text-gray-700 dark:text-gray-300 italic">"{testimonial.text}"</p>
             </div>
           ))}
         </div>

@@ -3,7 +3,7 @@ const Newsletter = () => {
   return (
     <section className="py-20 bg-gradient-sunset">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <span className="font-script text-3xl text-white/90 mb-2 block">
+        <span className="font-body text-2xl md:text-3xl text-white/90 mb-2 block font-medium">
           Stay Connected
         </span>
         <h2 className="font-display text-display-sm md:text-display-md font-bold text-white mb-6">
