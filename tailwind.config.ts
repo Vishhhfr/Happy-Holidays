@@ -79,10 +79,20 @@ export default {
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				sm: 'calc(var(--radius) - 4px)',
+				'organic': '20px'
 			},
 			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
+				sans: ['Montserrat', 'system-ui', 'sans-serif'],
+				serif: ['Crimson Text', 'Georgia', 'serif'],
+				script: ['Dancing Script', 'cursive'],
+				display: ['Crimson Text', 'serif'],
+				body: ['Montserrat', 'sans-serif']
+			},
+			fontSize: {
+				'display-lg': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+				'display-md': ['3rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+				'display-sm': ['2.5rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -100,11 +110,26 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'shimmer': {
+					'0%': { transform: 'translateX(-100%)' },
+					'100%': { transform: 'translateX(100%)' },
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 3s ease-in-out infinite',
+				'shimmer': 'shimmer 2s infinite',
+			},
+			backgroundImage: {
+				'gradient-organic': 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)',
+				'gradient-sunset': 'linear-gradient(135deg, #ff6b6b 0%, #feca57 50%, #48dbfb 100%)',
+				'gradient-ocean': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
 			}
 		}
 	},

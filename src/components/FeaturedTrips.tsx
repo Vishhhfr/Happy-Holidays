@@ -111,24 +111,27 @@ const FeaturedTrips = () => {
   const currentTrip = featuredTrips[currentTripIndex];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-purple-50 via-white to-lavender-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
+    <section className="py-20 bg-gradient-to-br from-purple-50 via-white to-lavender-50 dark:from-gray-900 dark:via-gray-800 dark:to-purple-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Featured Trips for You!
+        <div className="text-center mb-16">
+          <span className="font-script text-3xl text-purple-600 dark:text-purple-400 mb-2 block">
+            Handpicked for You
+          </span>
+          <h2 className="font-display text-display-sm md:text-display-md font-bold text-gray-900 dark:text-white mb-6">
+            Featured Destinations
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Handpicked destinations that offer the perfect blend of adventure, relaxation, and cultural experiences.
+          <p className="font-body text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Discover extraordinary places that offer the perfect blend of adventure, relaxation, and cultural immersion.
           </p>
         </div>
 
         <div className="relative max-w-6xl mx-auto">
-          {/* Navigation Buttons - Fixed positioning to avoid overlap */}
+          {/* Navigation Buttons - Better positioning */}
           <Button
             onClick={prevTrip}
             variant="outline"
             size="icon"
-            className="absolute left-0 md:left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 border-purple-200 dark:border-gray-600 shadow-lg"
+            className="absolute left-2 md:left-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 border-purple-200 dark:border-gray-600 card-shadow hover:card-shadow-hover transition-all duration-300"
           >
             <ChevronLeft className="h-6 w-6" />
           </Button>
@@ -137,89 +140,89 @@ const FeaturedTrips = () => {
             onClick={nextTrip}
             variant="outline"
             size="icon"
-            className="absolute right-0 md:right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 border-purple-200 dark:border-gray-600 shadow-lg"
+            className="absolute right-2 md:right-6 top-1/2 transform -translate-y-1/2 z-20 bg-white/95 dark:bg-gray-800/95 backdrop-blur-sm hover:bg-white dark:hover:bg-gray-700 border-purple-200 dark:border-gray-600 card-shadow hover:card-shadow-hover transition-all duration-300"
           >
             <ChevronRight className="h-6 w-6" />
           </Button>
 
-          {/* Trip Card - Added proper margin to prevent overlap */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-purple-100 dark:border-gray-700 transition-all duration-500 mx-12 md:mx-16">
+          {/* Trip Card - Improved spacing */}
+          <div className="card-organic bg-white dark:bg-gray-800 card-shadow hover:card-shadow-hover border border-purple-100 dark:border-gray-700 transition-all duration-500 mx-16 md:mx-20 overflow-hidden">
             {/* Featured Image */}
             <div className="h-80 overflow-hidden relative">
               <img 
                 src={currentTrip.image}
                 alt={currentTrip.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/20"></div>
-              <div className="absolute top-4 right-4 bg-white/90 dark:bg-gray-800/90 px-3 py-1 rounded-full">
-                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200">{currentTrip.duration}</span>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"></div>
+              <div className="absolute top-6 right-6 bg-white/90 dark:bg-gray-800/90 px-4 py-2 rounded-full backdrop-blur-sm">
+                <span className="font-body text-sm font-semibold text-gray-800 dark:text-gray-200">{currentTrip.duration}</span>
               </div>
             </div>
             
-            <div className="p-8">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">{currentTrip.title}</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">{currentTrip.description}</p>
+            <div className="p-8 md:p-10">
+              <h3 className="font-display text-3xl font-bold text-gray-900 dark:text-white mb-4">{currentTrip.title}</h3>
+              <p className="font-body text-gray-600 dark:text-gray-300 mb-8 text-lg leading-relaxed">{currentTrip.description}</p>
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                <div className="flex items-center space-x-2">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+                <div className="flex items-center space-x-3">
                   <Utensils className="h-5 w-5 text-purple-600" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                  <span className="font-body text-sm text-gray-600 dark:text-gray-300">
                     {currentTrip.foodIncluded ? "Food Included" : "Food Not Included"}
                   </span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-3">
                   <MapPin className="h-5 w-5 text-purple-600" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                  <span className="font-body text-sm text-gray-600 dark:text-gray-300">
                     {currentTrip.guideAvailable ? "Guide Available" : "Self Guided"}
                   </span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-3">
                   <Users className="h-5 w-5 text-purple-600" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                  <span className="font-body text-sm text-gray-600 dark:text-gray-300">
                     {currentTrip.groupSize}
                   </span>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-3">
                   <Calendar className="h-5 w-5 text-purple-600" />
-                  <span className="text-sm text-gray-600 dark:text-gray-300">
+                  <span className="font-body text-sm text-gray-600 dark:text-gray-300">
                     {currentTrip.accommodation}
                   </span>
                 </div>
               </div>
 
-              <div className="mb-4">
-                <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                  <strong>Transportation:</strong> {currentTrip.transportation}
+              <div className="mb-6 space-y-3">
+                <p className="font-body text-sm text-gray-600 dark:text-gray-300">
+                  <strong className="font-semibold">Transportation:</strong> {currentTrip.transportation}
                 </p>
-                <p className="text-sm text-gray-600 dark:text-gray-300">
-                  <strong>Activities:</strong> {currentTrip.activities.join(", ")}
+                <p className="font-body text-sm text-gray-600 dark:text-gray-300">
+                  <strong className="font-semibold">Activities:</strong> {currentTrip.activities.join(", ")}
                 </p>
               </div>
               
-              <div className="flex justify-between items-center mb-6">
-                <span className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-lavender-600 bg-clip-text text-transparent">{currentTrip.price}</span>
+              <div className="flex justify-between items-center mb-8">
+                <span className="font-display text-4xl font-bold gradient-text">{currentTrip.price}</span>
               </div>
               
               <Button 
                 onClick={() => addToCart(currentTrip)}
-                className="w-full bg-gradient-to-r from-purple-600 to-lavender-600 hover:from-purple-700 hover:to-lavender-700 text-white font-semibold py-3 px-6 rounded-xl text-lg transition-all duration-300 transform hover:scale-105"
+                className="btn-organic w-full bg-gradient-ocean hover:opacity-90 text-white font-body font-semibold py-4 px-6 text-lg transition-all duration-300 transform hover:scale-105 card-shadow"
               >
-                Add to Cart
+                Add to Adventure Cart
               </Button>
             </div>
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-10 space-x-3">
             {featuredTrips.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentTripIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentTripIndex
-                    ? "bg-gradient-to-r from-purple-600 to-lavender-600 w-8"
-                    : "bg-gray-300 dark:bg-gray-600"
+                    ? "bg-gradient-ocean w-10"
+                    : "bg-gray-300 dark:bg-gray-600 hover:bg-gray-400"
                 }`}
               />
             ))}
