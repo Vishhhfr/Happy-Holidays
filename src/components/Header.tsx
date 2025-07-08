@@ -44,7 +44,7 @@ const Header = () => {
           <div className="flex-shrink-0">
             <Link to="/home" className="flex items-center space-x-3">
               <Logo size="sm" />
-              <span className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-lavender-600 bg-clip-text text-transparent">
+              <span className="font-body text-2xl font-bold bg-gradient-to-r from-purple-600 to-lavender-600 bg-clip-text text-transparent">
                 Happy Holidays
               </span>
             </Link>
@@ -57,7 +57,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                  className="font-body text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
                 >
                   {item.name}
                 </Link>
@@ -92,7 +92,7 @@ const Header = () => {
             </Link>
             <button 
               onClick={handleLogout}
-              className="bg-gradient-to-r from-purple-600 to-lavender-600 hover:from-purple-700 hover:to-lavender-700 text-white px-4 py-2 rounded-lg transition-all duration-200"
+              className="bg-gradient-to-r from-purple-600 to-lavender-600 hover:from-purple-700 hover:to-lavender-700 text-white font-body px-4 py-2 rounded-lg transition-all duration-200"
             >
               Logout
             </button>
@@ -117,7 +117,7 @@ const Header = () => {
                 <Link
                   key={item.name}
                   to={item.href}
-                  className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 block px-3 py-2 text-base font-medium"
+                  className="font-body text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 block px-3 py-2 text-base font-medium"
                   onClick={toggleMenu}
                 >
                   {item.name}
@@ -152,7 +152,7 @@ const Header = () => {
                 </Link>
                 <button 
                   onClick={handleLogout}
-                  className="bg-gradient-to-r from-purple-600 to-lavender-600 text-white px-4 py-2 rounded-lg"
+                  className="bg-gradient-to-r from-purple-600 to-lavender-600 text-white font-body px-4 py-2 rounded-lg"
                 >
                   Logout
                 </button>
