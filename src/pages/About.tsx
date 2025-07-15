@@ -63,20 +63,20 @@ const About = () => {
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">Our Story</h2>
             
-            <div className="prose prose-lg max-w-none text-gray-600 dark:text-gray-300 space-y-6">
-              <p>
+            <div className="space-y-6 text-gray-600 dark:text-gray-300">
+              <p className="text-lg leading-relaxed">
                 Founded in 2010, Happy Holidays began as a small dream shared by passionate travelers who believed that everyone deserves to experience the world's wonders. What started as a boutique travel consultancy has grown into one of the most trusted travel agencies, serving thousands of adventurers, families, and business travelers.
               </p>
               
-              <p>
+              <p className="text-lg leading-relaxed">
                 Our journey began with a simple philosophy: travel should be transformative, accessible, and worry-free. We understood that planning the perfect trip could be overwhelming, so we dedicated ourselves to becoming the bridge between our clients' dreams and their destinations.
               </p>
               
-              <p>
+              <p className="text-lg leading-relaxed">
                 Today, Happy Holidays stands as a testament to the power of personalized service and genuine care. We've curated relationships with premium hotels, experienced local guides, and reliable transport partners across the globe. Every recommendation we make is based on firsthand experience and thorough vetting.
               </p>
               
-              <p>
+              <p className="text-lg leading-relaxed">
                 What sets us apart is our commitment to understanding each traveler's unique story. Whether you're seeking a romantic getaway, a family adventure, a spiritual journey, or a corporate retreat, we craft experiences that resonate with your personal travel style and aspirations.
               </p>
             </div>

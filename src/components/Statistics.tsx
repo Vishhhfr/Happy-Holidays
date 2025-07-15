@@ -27,13 +27,13 @@ const Statistics = () => {
     <section className="py-20 bg-gradient-ocean">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="font-body text-2xl md:text-3xl text-yellow-300 mb-2 block font-medium">
+          <span className="text-2xl md:text-3xl text-yellow-300 mb-2 block">
             Our Journey So Far
           </span>
-          <h2 className="font-display text-display-sm md:text-display-md font-bold text-white mb-6">
+          <h2 className="text-display-sm md:text-display-md font-bold text-white mb-6">
             Adventure Milestones
           </h2>
-          <p className="font-body text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-blue-100 max-w-2xl mx-auto leading-relaxed">
             Numbers that tell the story of our dedication to creating extraordinary travel experiences.
           </p>
         </div>
@@ -45,10 +45,10 @@ const Statistics = () => {
                 <div className="text-5xl mb-6 animate-float" style={{animationDelay: `${index * 0.5}s`}}>
                   {stat.icon}
                 </div>
-                <div className="font-display text-4xl md:text-5xl font-bold text-white mb-3 text-shadow-soft">
+                <div className="text-4xl md:text-5xl font-bold text-white mb-3 text-shadow-soft">
                   {stat.number}
                 </div>
-                <div className="font-body text-blue-100 font-medium text-lg">
+                <div className="text-blue-100 text-lg">
                   {stat.label}
                 </div>
               </div>

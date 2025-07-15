@@ -34,7 +34,7 @@ const Settings = ({ isOpen, onClose }: SettingsProps) => {
 
         <div className="space-y-6">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Theme</h3>
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-4">Theme</h3>
             <div className="grid grid-cols-3 gap-3">
               <Button
                 variant={theme === "light" ? "default" : "outline"}

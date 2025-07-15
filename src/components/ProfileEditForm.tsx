@@ -43,7 +43,7 @@ const ProfileEditForm = ({ userInfo, onSave, onCancel }: ProfileEditFormProps) =
 
   return (
     <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-purple-100 dark:border-gray-700">
-      <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+      <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
         <User className="h-5 w-5 text-purple-600 dark:text-purple-400" />
         Edit Profile Information
       </h2>

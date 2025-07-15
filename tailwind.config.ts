@@ -83,11 +83,10 @@ export default {
 				'organic': '20px'
 			},
 			fontFamily: {
-				sans: ['Montserrat', 'system-ui', 'sans-serif'],
-				serif: ['Crimson Text', 'Georgia', 'serif'],
-				script: ['Dancing Script', 'cursive'],
-				display: ['Crimson Text', 'serif'],
-				body: ['Montserrat', 'sans-serif']
+				sans: ['Times New Roman', 'Times', 'serif'],
+				serif: ['Times New Roman', 'Times', 'serif'],
+				display: ['Times New Roman', 'Times', 'serif'],
+				body: ['Times New Roman', 'Times', 'serif']
 			},
 			fontSize: {
 				'display-lg': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],

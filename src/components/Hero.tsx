@@ -15,27 +15,27 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
         <div className="mb-6">
-          <span className="font-body text-3xl md:text-5xl text-yellow-300 animate-float block mb-2 font-medium">
+          <span className="text-3xl md:text-5xl text-yellow-300 animate-float block mb-2">
             Welcome to
           </span>
-          <h1 className="font-display text-display-md md:text-display-lg font-bold text-shadow-strong animate-fade-in">
+          <h1 className="text-display-md md:text-display-lg font-bold text-shadow-strong animate-fade-in">
             Happy Holidays
           </h1>
-          <div className="font-body text-xl md:text-3xl text-orange-300 mt-2 font-medium">
+          <div className="text-xl md:text-3xl text-orange-300 mt-2">
             Explorer
           </div>
         </div>
         
-        <p className="font-body text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed text-shadow-soft">
+        <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 leading-relaxed text-shadow-soft">
           Embark on extraordinary journeys to breathtaking destinations. From majestic mountain peaks to serene ocean shores, 
           we craft personalized adventures that create memories to last a lifetime.
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button className="btn-organic bg-gradient-to-r from-lavender-500 to-lavender-600 hover:from-lavender-600 hover:to-lavender-700 text-white font-body font-semibold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+          <button className="btn-organic bg-gradient-to-r from-lavender-500 to-lavender-600 hover:from-lavender-600 hover:to-lavender-700 text-white font-semibold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
             Discover Destinations
           </button>
-          <button className="btn-organic bg-gradient-to-r from-lavender-500 to-lavender-600 hover:from-lavender-600 hover:to-lavender-700 text-white font-body font-semibold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+          <button className="btn-organic bg-gradient-to-r from-lavender-500 to-lavender-600 hover:from-lavender-600 hover:to-lavender-700 text-white font-semibold py-4 px-8 text-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
             View Our Packages
           </button>
         </div>
